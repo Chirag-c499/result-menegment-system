@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Declare Result{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <h2 class="text-white mb-4">Declare Result</h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label text-white">Select Student:</label>
+      <select name="student_id" class="form-control" required>
+        {% for student in all_users %}
+          <option value="{{ student.id }}">{{ student.name }} ({{ student.roll_no }})</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <hr class="text-light">
+
+    {% for subject in subjects %}
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label class="form-label text-white">{{ subject.sub_name }} - Marks Obtained</label>
+        <input type="number" name="marks_{{ subject.id }}" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <label class="form-label text-white">{{ subject.sub_name }} - Total Marks</label>
+        <input type="number" name="total_{{ subject.id }}" class="form-control" required>
+      </div>
+    </div>
+    {% endfor %}
+
+    <button type="submit" class="btn btn-success mt-3">Declare Result</button>
+  </form>
+</div>
+{% endblock %}

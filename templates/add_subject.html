@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Add New Subject</h4>
+        </div>
+        <div class="card-body bg-light">
+            <form method="POST">
+                <div class="mb-3">
+                    <label class="form-label text-dark">Subject Code</label>
+                    <input type="text" class="form-control" name="sub_code" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label text-dark">Subject Name</label>
+                    <input type="text" class="form-control" name="sub_name" required>
+                </div>
+                <button type="submit" class="btn btn-success">Add Subject</button>
+                <a href="{{ url_for('admin_dashboard') }}" class="btn btn-secondary ms-2">Back to Dashboard</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

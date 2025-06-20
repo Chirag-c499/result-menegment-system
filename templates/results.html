@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Result Details</h3>
+<p>Date: {{ result.declaration_date }}</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Subject</th>
+            <th>Marks Obtained</th>
+            <th>Total Marks</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in result.items %}
+        <tr>
+            <td>{{ item.subject.name }}</td>
+            <td>{{ item.marks_obtained }}</td>
+            <td>{{ item.total_marks }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{{ url_for('home') }}" class="btn btn-secondary">Back</a>
+{% endblock %}
